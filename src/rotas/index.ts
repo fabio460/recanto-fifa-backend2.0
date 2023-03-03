@@ -5,8 +5,9 @@ import usuarioRouter from "./usuarioRouter";
 
 const route:rotaType[] = [
     {endpoint:"/usuario",rota:usuarioRouter},
+    
     // {endpoint:"/jogador",rota:jogadorRouter},
-    {endpoint:"/",rota:defaultRouter},
+    // {endpoint:"/",rota:defaultRouter},
 ]
 
 export default route
