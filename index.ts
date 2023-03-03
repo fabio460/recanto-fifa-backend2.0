@@ -10,4 +10,5 @@ route.forEach(elem=>{
 // app.get("/",(req,res)=>{
 //     res.send("ola mundo")
 // })
+
 app.listen(4000,()=>console.log("escutando na porta 4000"))
