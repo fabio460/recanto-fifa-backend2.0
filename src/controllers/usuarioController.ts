@@ -1,7 +1,7 @@
 import { Response, Request } from "express"
-// import {PrismaClient} from '@prisma/client'
-// import { jogadoresType } from "../../types"
-// const prisma = new PrismaClient()
+import {PrismaClient} from '@prisma/client'
+import { jogadoresType } from "../../types"
+const prisma = new PrismaClient()
 
 
 export const getUsuario =async (req:Request,res:Response)=>{
