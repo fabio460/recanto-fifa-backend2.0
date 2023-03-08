@@ -12,22 +12,36 @@ datasource db {
 
 model Usuario {
   id     String @id @default(auto()) @map("_id") @db.ObjectId
-  nome  String
+  nome  String @unique
   saldo Float
   folha Float
   time String?
   jogadore Jogadore[]
+  registro RegistroDeAtividade[]
+  bugado String?
 }
 
 model Jogadore {
    id    String @id @default(auto()) @map("_id") @db.ObjectId
-   label String
+   label String @unique
    Posicao String
    OVER String
    CLUBE String
+   valor Float
    idUsuario String @db.ObjectId 
    usuario Usuario @relation(fields: [idUsuario],references: [id],onDelete: Cascade, onUpdate: Cascade)
 }
 
+model Temporada {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  numero Float
+}
 
-
+model RegistroDeAtividade{
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  nomeDeQuemFez String
+  data DateTime @updatedAt 
+  atividadeFeita String
+  idUduario String @db.ObjectId
+  usuario Usuario @relation(fields: [idUduario], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
