@@ -143,6 +143,7 @@ export const atualizar =async (req:Request,res:Response)=>{
    }
 }
 
+
 export const bugado =async (req:Request,res:Response)=>{
    const {id, bugado} = req.body
    try {
