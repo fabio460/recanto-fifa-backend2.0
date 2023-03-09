@@ -145,11 +145,11 @@ export const atualizar =async (req:Request,res:Response)=>{
 
 
 export const bugado =async (req:Request,res:Response)=>{
-   const {id, bugado} = req.body
+   const {nome, bugado} = req.body
    try {
          const u = await  prisma.usuario.update({
             where:{
-              id
+              nome
             },
             data:{
               bugado
