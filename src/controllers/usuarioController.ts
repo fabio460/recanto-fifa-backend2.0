@@ -143,19 +143,42 @@ export const atualizar =async (req:Request,res:Response)=>{
    }
 }
 
+// export const bugado =async (req:Request,res:Response)=>{
+//    const {id, bugado} = req.body
+//    try {
+//          const u = await  prisma.usuario.update({
+//             where:{
+//               id
+//             },
+//             data:{
+//               bugado
+//             }
+//           })
+//           res.json(u)         
+//    } catch (error) {
+//       res.json(error)
+//    }
+// }
+
 export const bugado =async (req:Request,res:Response)=>{
-   const {id, bugado} = req.body
+   const {premiados} = req.body
    try {
-         const u = await  prisma.usuario.update({
+      premiados.map(async (p:any)=>{
+         await prisma.usuario.update({
             where:{
-              id
+              id: p.id
             },
             data:{
-              bugado
+              bugado: p.bugado
             }
-          })
-          res.json(u)         
+          })         
+      })
+      res.send("bugados")
    } catch (error) {
       res.json(error)
    }
+}
+   
+export const pagamentoDasPremiacoes =async (req:Request,res:Response)=>{
+   res.json("teste")
 }
